@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 
 # Clone the apple_bleee repository
 WORKDIR /app
-RUN git clone https://github.com/hexway/apple_bleee.git
+RUN git clone https://github.com/sealldeveloper/apple_bleee.git
 WORKDIR /app/apple_bleee
 
 # Set up submodules
@@ -30,6 +30,7 @@ RUN git clone https://github.com/seemoo-lab/owl.git
 WORKDIR /app/apple_bleee/owl
 RUN git submodule update --init
 WORKDIR /app/apple_bleee/owl/googletest
+# https://github.com/seemoo-lab/owl/pull/79
 RUN git checkout 58d77fa8070e8cec2dc1ed015d66b454c8d78850
 
 # Build the project
