@@ -61,7 +61,7 @@ imessage_url = ''  # URL to iMessage sender (sorry, but we did some RE for that 
 iwdev = 'wlan0'
 apple_company_id = 'ff4c00'
 
-dev_id = 0  # the bluetooth device is hci0
+dev_id = 1  # the bluetooth device is hci0
 toggle_device(dev_id, True)
 
 sock = 0

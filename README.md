@@ -15,17 +15,19 @@ To use these scripts you will need a Bluetooth adapter for sending `BLE` message
 We have tested these PoCs on **Kali Linux**
 
 
-## Installation
+## Installation & Usage
 
 ```
-# clone main repo
-git clone https://github.com/hexway/apple_bleee.git && cd ./apple_bleee
-# install dependencies
-sudo apt update && sudo apt install -y bluez libpcap-dev libev-dev libnl-3-dev libnl-genl-3-dev libnl-route-3-dev cmake libbluetooth-dev
-sudo pip3 install -r requirements.txt
-# clone and install owl for AWDL interface
-git clone https://github.com/seemoo-lab/owl.git && cd ./owl && git submodule update --init && mkdir build && cd build && cmake .. && make && sudo make install && cd ../..
+$ sudo docker build -t apple_bleee .
+$ sudo docker run -it --privileged --net=host --pid=host -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus -v /var/run/bluetooth:/var/run/bluetooth -v /sys/class/bluetooth:/sys/class/bluetooth --name apple_bleee_container apple_bleee
+# service bluetooth start
+# python3 ble_read_state.py
 ```
+
+### Errors
+- Operation not possible due to RF-kill: `rfkill unblock <id>` or `rfkill unblock bluetooth`
+- No devices appearing: Make sure you have a BT USB attached, builtin doesn't work
+
 
 ## How to use
 
