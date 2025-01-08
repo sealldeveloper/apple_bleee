@@ -19,7 +19,7 @@ We have tested these PoCs on **Kali Linux**
 
 ```
 $ sudo docker build -t apple_bleee .
-$ sudo docker run -it --privileged --net=host --pid=host -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus -v /var/run/bluetooth:/var/run/bluetooth -v /sys/class/bluetooth:/sys/class/bluetooth --name apple_bleee_container apple_bleee
+$ sudo docker run -it --rm --privileged --net=host --pid=host -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus -v /var/run/bluetooth:/var/run/bluetooth -v /sys/class/bluetooth:/sys/class/bluetooth --name apple_bleee_container apple_bleee
 # service bluetooth start
 # python3 ble_read_state.py
 ```
